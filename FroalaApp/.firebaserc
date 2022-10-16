@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "froala-c0a0a": {
+      "hosting": {
+        "FroalaApp": [
+          "froala-c0a0a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "froala-c0a0a"
+  }
+}
