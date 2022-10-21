@@ -96,10 +96,14 @@ export class AuthService {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        this.router.navigate(['/editor']);
         this.SetUserData(result.user);
+        this.router.navigate(['/editor']);
+        
+        
+        
       })
       .catch((error) => {
+        
         window.alert(error);
       });
   }
