@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';  
+import { BrowserModule } from '@angular/platform-browser';
 import { FroalaEditorModule } from 'angular-froala-wysiwyg';
 import {
   AngularFirestore,
@@ -24,7 +26,7 @@ declare var $: any;
   styleUrls: ['./editor.component.css'],
 })
 export class EditorComponent implements OnInit {
-  AllowSave:false;
+  public WritingMode:boolean=false;
   private itemDoc: AngularFirestoreDocument<content>;
   public initControls;
   public SaveContent;
@@ -37,7 +39,6 @@ export class EditorComponent implements OnInit {
     firestore: AngularFirestore,
     public edit: FroalaEditorModule
   ) {
-    
     this.editorContents = firestore.collection('editorContents').valueChanges();
     var User = JSON.parse(localStorage.getItem('user')!);
     var UserContent = this.editorContents.subscribe((data: any) => {
@@ -61,7 +62,6 @@ export class EditorComponent implements OnInit {
 
   public initialize(initControls) {
     this.initControls = initControls;
-    AllowSave:true;
     let ContentKey = '';
     let update = 0;
     this.SaveContent = async function () {
@@ -89,5 +89,8 @@ export class EditorComponent implements OnInit {
       }
     };
   }
-  
+  EnableSave()
+  {
+    this.WritingMode=true;
+  }
 }

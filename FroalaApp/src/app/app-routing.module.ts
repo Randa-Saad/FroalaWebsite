@@ -19,11 +19,10 @@ const routes: Routes = [
   { path: 'editor', component: EditorComponent , canActivate: [AuthGuard]},
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
-  
   {
-    path: 'image', component: ImagesComponent, canActivate: [AuthGuard], children: [
-      { path: 'upload', component: ImageComponent , canActivate: [AuthGuard]},
-      { path: 'list', component: ImageListComponent , canActivate: [AuthGuard]}
+    path: 'image', component: ImagesComponent, children: [
+      { path: 'upload', component: ImageComponent },
+      { path: 'list', component: ImageListComponent }
     ]
   }
 ];

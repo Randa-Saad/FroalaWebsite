@@ -28,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ImagesComponent } from './components/images/images.component';
 import { ImageComponent } from './components/images/image/image.component';
 import { ImageListComponent } from './components/images/image.list/image.list.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ImageListComponent } from './components/images/image.list/image.list.co
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
     ReactiveFormsModule,
+    CommonModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
