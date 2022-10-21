@@ -1,26 +1,33 @@
+<section
+  style="font-family: Montserrat"
+  class="bg-white flex font-medium items-center justify-center h-screen bg-neutral-200"
+>
+  <section
+    class="w-100 mx-auto bg-blue-600 rounded-2xl px-8 py-6 shadow-lg"
+    *ngIf="authService.userData as user"
+  >
+    <!-- <div class="mt-6 w-fit mx-auto">
+      <img
+        src="{{ user.photoURL ? user.photoURL : '/assets/dummy-user.png' }}"
+        alt="{{ user.displayName }}"
+        class="rounded-full w-28"
+        srcset=""
+      />
+    </div> -->
 
-
-  <section style="font-family: Montserrat" class=" bg-white flex font-medium items-center justify-center h-screen">
-
-    <section class="w-100 mx-auto bg-blue-600 rounded-2xl px-8 py-6 shadow-lg"  *ngIf="authService.userData as user" >
-      
-        <div class="mt-6 w-fit mx-auto">
-            <img src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
-            alt="{{user.displayName}}" class="rounded-full w-28 " srcset="">
-        </div>
-
-        <div class="mt-8 ">
-            <h2 class="text-white items-center font-bold tracking-wide">Email:<strong>{{user.email}}</strong></h2>
-        </div>
-        <p class="text-white font-semibold mt-2.5" >
-          Email Verified: <strong>{{user.emailVerified}}</strong>
-        </p>
-        <div class="mt-3 text-white text-sm">
-            <span class="text-gray-400 font-semibold">UserId:</span>
-            <span><strong>{{user.uid}}</strong></span>
-        </div>
-     
-    </section>
-
-
+    <div class="mt-8">
+      <h2 class="text-white items-center font-bold tracking-wide">
+        Email: <strong>{{ user.email }}</strong>
+      </h2>
+    </div>
+    <p class="text-white font-semibold mt-2.5">
+      Email Verified: <strong>{{ user.emailVerified }}</strong>
+    </p>
+    <div class="mt-3 text-white text-sm">
+      <span class="text-white font-semibold">UserId: </span>
+      <span
+        ><strong>{{ user.uid }}</strong></span
+      >
+    </div>
+  </section>
 </section>

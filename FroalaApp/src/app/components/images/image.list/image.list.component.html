@@ -1,0 +1,76 @@
+<table *ngIf="imageList">
+  <tr *ngFor="let i of rowIndexArray" class="flex  justify-center items-center ">
+    <td class="shadow-xl m-4 ">
+      <div
+        class="flex Justify-center items-center rounded shadow-lg"
+        *ngIf="i == 0"
+      >
+        <a routerLink="/image/upload">
+          <img
+            src="/assets/img/new_image.jpg"
+            class="object-contain h-48 w-96 overflow-hidden"
+          />
+          <span
+            class="inline-block bg-blue-600 rounded-full px-3 py-1 m-2 text-sm mr-2 mb-2 text-white"
+            >Insert New Image</span
+          ></a
+        >
+      </div>
+      <div class="rounded shadow-lg" *ngIf="i != 0">
+        <img
+          [src]="imageList[3 * i - 1].imageUrl"
+          class="object-contain h-48 w-96 overflow-hidden"
+        />
+        <div class="bg-slate-300">
+          <span class="text-l text-blue-600 m-2 font-semibold"
+            >Title : {{ imageList[3 * i - 1].title }}</span
+          >
+          <div class="px-6 pt-4 pb-2">
+            <a
+              class="inline-block bg-blue-600 rounded-full px-3 py-1 text-sm mr-2 mb-2 text-white" (click)="Delete(imageList[3 * i - 1].title)"
+              >Delete</a
+            >
+          </div>
+        </div>
+      </div>
+    </td>
+    <td *ngIf="imageList[3 * i]" class="shadow-xl m-4">
+      <div class="rounded shadow-lg">
+        <img
+          [src]="imageList[3 * i].imageUrl"
+          class="object-contain h-48 w-96 overflow-hidden"
+        />
+        <div class="bg-slate-300">
+          <span class="text-l text-blue-600 m-2 font-semibold"
+            >Title : {{ imageList[3 * i].title }}</span
+          >
+          <div class="px-6 pt-4 pb-2">
+            <a
+              class="inline-block bg-blue-600 rounded-full px-3 py-1 text-sm mr-2 mb-2 text-white" (click)="Delete(imageList[3 * i].title)"
+              >Delete</a
+            >
+          </div>
+        </div>
+      </div>
+    </td>
+    <td *ngIf="imageList[3 * i + 1]" class="shadow-xl m-4">
+      <div class="rounded shadow-lg">
+        <img
+          [src]="imageList[3 * i + 1].imageUrl"
+          class="object-contain h-48 w-96 overflow-hidden"
+        />
+        <div class="bg-slate-300">
+          <span class="text-l text-blue-600 m-2 font-semibold"
+            >Title : {{ imageList[3 * i + 1].title }}</span
+          >
+          <div class="px-6 pt-4 pb-2">
+            <a
+              class="inline-block bg-blue-600 rounded-full px-3 py-1 text-sm mr-2 mb-2 text-white" (click)="Delete(imageList[3 * i + 1].title)"
+              >Delete</a
+            >
+          </div>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
