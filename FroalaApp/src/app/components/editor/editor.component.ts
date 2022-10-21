@@ -15,16 +15,16 @@ import {
   getDocs,
   addDoc,
 } from 'firebase/firestore';
-//Plugin
 import 'froala-editor/js/plugins.pkgd.min.js';
-
 declare var $: any;
+
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css'],
 })
 export class EditorComponent implements OnInit {
+  AllowSave:false;
   private itemDoc: AngularFirestoreDocument<content>;
   public initControls;
   public SaveContent;
@@ -32,12 +32,12 @@ export class EditorComponent implements OnInit {
   UserContent: string | undefined;
   editorContent = '';
   editorContents: Observable<any[]>;
-
   constructor(
     public authService: AuthService,
     firestore: AngularFirestore,
     public edit: FroalaEditorModule
   ) {
+    
     this.editorContents = firestore.collection('editorContents').valueChanges();
     var User = JSON.parse(localStorage.getItem('user')!);
     var UserContent = this.editorContents.subscribe((data: any) => {
@@ -56,10 +56,12 @@ export class EditorComponent implements OnInit {
       extraPlugins: 'divarea',
       forcePasteAsPlainText: true,
     };
+    
   }
 
   public initialize(initControls) {
     this.initControls = initControls;
+    AllowSave:true;
     let ContentKey = '';
     let update = 0;
     this.SaveContent = async function () {
@@ -87,4 +89,5 @@ export class EditorComponent implements OnInit {
       }
     };
   }
+  
 }

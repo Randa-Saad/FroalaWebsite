@@ -6,9 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { EditorComponent } from './components/editor/editor.component';
-// route guard
 import { AuthGuard } from './shared/guard/auth.guard';
-//images
 import { ImagesComponent } from './components/images/images.component';
 import { ImageComponent } from './components/images/image/image.component';
 import { ImageListComponent } from './components/images/image.list/image.list.component';
